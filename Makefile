@@ -7,3 +7,6 @@ install:
 
 wfa:
 	venv/bin/python -m wfa.main
+
+test:
+	venv/bin/pytest
