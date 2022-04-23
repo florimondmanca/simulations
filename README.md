@@ -18,7 +18,7 @@ make <simulation>
 
 ## Listing
 
-- [wfa](./wfa) - 2D bitmap terrain generation in the terminal with emojis, inspired by [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse).
+- [wfc](./wfc) - 2D bitmap terrain generation in the terminal with emojis, inspired by [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse).
 
 ## License
 

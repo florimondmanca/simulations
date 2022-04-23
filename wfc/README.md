@@ -1,4 +1,4 @@
-# wfa
+# wfc
 
 Procedural generation of a bitmap terrain from a set of tiles and connection rules (_palette_) using the [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse) algorithm.
 

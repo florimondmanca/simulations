@@ -1,9 +1,9 @@
 import pytest
 
-from wfa.main import run, make_grid, iter_neighbors, show, ADJACENCIES
+from wfc.main import run, make_grid, iter_neighbors, show, ADJACENCIES
 
 
-def test_wfa(capsys: pytest.CaptureFixture) -> None:
+def test_wfc(capsys: pytest.CaptureFixture) -> None:
     nx = ny = 5
     grid = make_grid(nx, ny)
 
