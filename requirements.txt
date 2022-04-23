@@ -1,1 +1,7 @@
+rich==12.2.0
+trio==0.20.0
+
+black==22.3.0
+mypy==0.942
 pytest==7.1.2
+pytest-trio==0.7.0

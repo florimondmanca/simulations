@@ -1,22 +1,21 @@
-import pytest
+import trio
+import trio.testing
 
-from wfc.main import run, make_grid, iter_neighbors, show, ADJACENCIES
+from wfc._model import make_grid, iter_neighbors, ADJACENCIES
+from wfc.main import run
 
 
-def test_wfc(capsys: pytest.CaptureFixture) -> None:
+def test_wfc() -> None:
     nx = ny = 5
     grid = make_grid(nx, ny)
 
-    run(grid, nx, ny)
-    show(grid)
-
-    captured = capsys.readouterr()
-    modules = set(captured.out) - {"\n", " "}
-    assert modules <= {"🌳", "🌿", "🐚", "🌊"}
-    assert len(modules) >= 2
+    clock = trio.testing.MockClock(autojump_threshold=0)
+    trio.run(run, grid, nx, ny, clock=clock)
 
     for i, row in enumerate(grid):
-        for j, (module,) in enumerate(row):
+        for j, cell in enumerate(row):
+            (module,) = cell.modules
             for ni, nj in iter_neighbors(i, j, nx, ny):
-                n_module, = grid[ni][nj]
-                assert n_module in ADJACENCIES[module]
+                ncell = grid[ni][nj]
+                (nmodule,) = ncell.modules
+                assert nmodule in ADJACENCIES[module]
